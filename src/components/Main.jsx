@@ -1,5 +1,6 @@
 import { useState } from "react"
-import EditSection from "./EditSection"
+import { PersonalDetails } from "./PersonalDetails";
+import { ProfileSummary } from "./ProfileSummary";
 import CvSection from "./CvSection"
 import '../styles/main.css'
 
@@ -28,13 +29,16 @@ export default function Main() {
     return (
         <>
             <div className="main">
-                <EditSection 
-                handlePersonalDetails={ handlePersonalDetails }
-                handleProfileSummary={handleProfileSummary}/>
+                <section className="edit-section" >
+                    <PersonalDetails handlePersonalDetails = {handlePersonalDetails}/>
+                    <ProfileSummary handleProfileSummary = {handleProfileSummary}/>
+                </section>
 
-                <CvSection 
-                personalDetails = { personalDetails }
-                profileSummary = { profileSummary }/>
+                <section className="cv-section">
+                    <div className="name">{personalDetails.fullName}</div>
+                    <div className="email">{personalDetails.email}</div>
+                    <div className="email">{personalDetails.phoneNumber}</div>
+                </section>
             </div>
         </>
     )
