@@ -1,0 +1,28 @@
+.main {
+    --box-shodow-value:  2px 12px 51px -14px rgba(0,0,0,0.57);
+    flex: 1;
+    padding: 48px;
+    display: flex;
+    align-items: start;
+    gap: 32px;
+}
+
+.edit-section {
+    width: 40vw;
+    display: grid;
+    border-radius: 8px;
+    border: 0.5px solid rgba(128, 128, 128, 0.582);
+}
+
+.cv-section {
+    flex: 1;
+    box-shadow: var(--box-shodow-value);
+}
+
+/* for test */
+.edit-section > * {
+    height: 48px;
+    border: 0.5px solid rgba(128, 128, 128, 0.582);
+    display: flex;
+    align-items: center;
+}
