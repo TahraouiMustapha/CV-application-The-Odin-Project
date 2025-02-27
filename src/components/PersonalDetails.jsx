@@ -19,9 +19,8 @@ export function PersonalDetails(props) {
     }
 
     return (
-        <>
-            <section className="edit-section" >
-                <form onSubmit={(e) => { 
+        <div>
+            <form onSubmit={(e) => { 
                     e.preventDefault(); 
                     props.handlePersonalDetails(inputValues);
                 }}>
@@ -50,8 +49,7 @@ export function PersonalDetails(props) {
 
                     <button> submit </button>
 
-                </form>
-            </section>
-        </>
+            </form>
+        </div>
     )
 }

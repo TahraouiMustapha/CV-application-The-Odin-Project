@@ -4,18 +4,37 @@ import CvSection from "./CvSection"
 import '../styles/main.css'
 
 export default function Main() {
-    const [personalDetails, setPersonalDetails] = useState({fullName: '', email: ''});
+    const [personalDetails, setPersonalDetails] = useState({
+        fullName: '', 
+        email: '', 
+        phoneNumber: ''
+    });
 
-    function handlePersonalDetails(fullName, email) {
-        const newDetails = {fullName, email}
+    const [profileSummary, setProfileSummary] = useState({
+        heading: '',
+        summary: ''
+    })
+
+    // event handlers to submit the new informations
+
+    function handlePersonalDetails(newDetails) {
         setPersonalDetails(newDetails);
+    }
+
+    function handleProfileSummary(newDetails) {
+        setProfileSummary(newDetails)
     }
 
     return (
         <>
             <div className="main">
-                <EditSection handlePersonalDetails={ handlePersonalDetails }/>
-                <CvSection personalDetails = { personalDetails }/>
+                <EditSection 
+                handlePersonalDetails={ handlePersonalDetails }
+                handleProfileSummary={handleProfileSummary}/>
+
+                <CvSection 
+                personalDetails = { personalDetails }
+                profileSummary = { profileSummary }/>
             </div>
         </>
     )
