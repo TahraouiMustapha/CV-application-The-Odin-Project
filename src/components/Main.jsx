@@ -2,6 +2,7 @@ import { useState } from "react"
 import { PersonalDetails } from "./PersonalDetails";
 import { ProfileSummary } from "./ProfileSummary";
 import { PracticalExperienceCard } from "./PracticalExpCard";
+import { EducationCard } from "./EducationCard";
 import '../styles/main.css'
 
 export default function Main() {
@@ -17,6 +18,7 @@ export default function Main() {
     })
 
     const [experiencesArray, setExperiencesArray] = useState([]);
+    const [educationsArray, setEducationsArray] = useState([]);
 
     // event handlers to submit the new informations
 
@@ -39,6 +41,14 @@ export default function Main() {
         ])
     }
 
+    function handleEducations(newEducationCard) {
+        console.log(educationsArray)
+        setEducationsArray(prevArray => [
+            ...prevArray,
+            {id: prevArray.length, ...newEducationCard}
+        ])
+    }
+
     return (
         <>
             <div className="main">
@@ -49,12 +59,17 @@ export default function Main() {
                     <div>
                         <PracticalExperienceCard handleExperiences={handleExperiences}/>
                     </div>
+                    {/* education div */}
+                    <div>
+                        <EducationCard handleEducations={handleEducations}/>
+                    </div>
                 </section>
 
                 <section className="cv-section">
                     <div >{personalDetails.fullName}</div>
                     <div >{personalDetails.email}</div>
                     <div >{ experiencesArray.length > 0 && 'good' }</div>
+                    <div >{ educationsArray.length > 0 && 'good education' }</div>
 
                 </section>
             </div>

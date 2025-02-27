@@ -36,7 +36,7 @@ export function PracticalExperienceCard(props) {
                     }}/>
                 </p>
 
-                <div className="career-time">
+                <div className="duration">
                     <p>
                         <label htmlFor="from-date">From: </label>
                         <input type="date"
