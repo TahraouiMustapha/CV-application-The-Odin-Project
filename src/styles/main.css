@@ -10,8 +10,10 @@
 
 /* styles for edit section */
 .edit-section {
+    --background-edit-sec : rgba(53, 113, 224, 0.25);
+
     width: 40vw;
-    border-radius: 8px;
+    border-radius: 4px;
     border: var(--border-value);
 
     display: flex;
@@ -45,9 +47,20 @@
 .head > div img {
     width: 100%;
     transform: rotate(180deg);
+    transition: transform 0.2s ease;
 }
 
-/* for forms animation */
+.open > div img {
+    transform: rotate(0deg);
+}
+
+.open {
+    background-color: var(--background-edit-sec);
+    border: none;
+    outline: 5px solid rgba(45, 128, 224, 0.5);
+}
+
+/* styles for forms inside edit section */
 .forms {
     display: grid;
     grid-template-rows: 0fr;

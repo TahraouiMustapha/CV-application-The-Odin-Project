@@ -8,7 +8,7 @@ import '../styles/main.css'
 
 function Head(props) {
     return(
-        <div className="head">
+        <div className={`head ${props.shown === props.title ? 'open' : ''}`}>
             <p>{props.title}</p>
             <div onClick={() => {
                 props.shown === props.title
