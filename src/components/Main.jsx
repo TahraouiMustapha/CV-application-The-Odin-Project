@@ -3,7 +3,17 @@ import { PersonalDetails } from "./PersonalDetails";
 import { ProfileSummary } from "./ProfileSummary";
 import { PracticalExperienceCard } from "./PracticalExpCard";
 import { EducationCard } from "./EducationCard";
+import arrowIcon from "../assets/arrow.svg";
 import '../styles/main.css'
+
+function Head(props) {
+    return(
+        <div className="head">
+            <p>{props.title}</p>
+            <img src={arrowIcon} alt="arrow icon" />
+        </div>
+    )
+}
 
 export default function Main() {
     const [personalDetails, setPersonalDetails] = useState({
@@ -19,6 +29,9 @@ export default function Main() {
 
     const [experiencesArray, setExperiencesArray] = useState([]);
     const [educationsArray, setEducationsArray] = useState([]);
+
+    // use state for handle the shown component
+    const [shown, setShown] = useState('');
 
     // event handlers to submit the new informations
 
@@ -53,16 +66,23 @@ export default function Main() {
         <>
             <div className="main">
                 <section className="edit-section" >
-                    <PersonalDetails handlePersonalDetails = {handlePersonalDetails}/>
-                    <ProfileSummary handleProfileSummary = {handleProfileSummary}/>
+                    <Head title={'Personal Details'} shown={shown} setShown={setShown}/>
+                    {shown === "Personal Details" && <PersonalDetails handlePersonalDetails = {handlePersonalDetails}/>}
+                    <Head title={'Profile Summary'} shown={shown} setShown={setShown}/>
+                    {shown === "Profile Summary" && <ProfileSummary handleProfileSummary = {handleProfileSummary}/>}
                     {/* experience div */}
-                    <div>
-                        <PracticalExperienceCard handleExperiences={handleExperiences}/>
-                    </div>
+                    <Head title={'Experience'} shown={shown} setShown={setShown}/>
+                    { shown === "Experience" &&
+                        <div>
+                         <PracticalExperienceCard handleExperiences={handleExperiences}/>
+                    </div>}
                     {/* education div */}
+                    <Head title={'Education'} shown={shown} setShown={setShown}/>
+                   { shown === "Education" &&  
                     <div>
-                        <EducationCard handleEducations={handleEducations}/>
-                    </div>
+                        <EducationCard handleEducations={handleEducations}/> 
+                    </div> }
+
                 </section>
 
                 <section className="cv-section">
