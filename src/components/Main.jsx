@@ -10,7 +10,14 @@ function Head(props) {
     return(
         <div className="head">
             <p>{props.title}</p>
-            <img src={arrowIcon} alt="arrow icon" />
+            <div onClick={() => {
+                props.shown === props.title
+                ? props.setShown('')
+                : props.setShown(props.title);
+                console.log(props.shown)
+            }}>
+                <img src={arrowIcon} alt="arrow icon" />
+            </div>
         </div>
     )
 }
