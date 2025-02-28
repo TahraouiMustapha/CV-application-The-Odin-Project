@@ -19,7 +19,7 @@ export function PersonalDetails(props) {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             <form onSubmit={(e) => { 
                     e.preventDefault(); 
                     props.handlePersonalDetails(inputValues);

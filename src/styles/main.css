@@ -1,5 +1,6 @@
 .main {
     --box-shodow-value:  2px 12px 51px -14px rgba(0,0,0,0.57);
+    --border-value: 0.5px solid rgba(128, 128, 128, 0.582);
     flex: 1;
     padding: 48px;
     display: flex;
@@ -7,11 +8,58 @@
     gap: 32px;
 }
 
+/* styles for edit section */
 .edit-section {
     width: 40vw;
-    display: grid;
     border-radius: 8px;
-    border: 0.5px solid rgba(128, 128, 128, 0.582);
+    border: var(--border-value);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-section > * {
+    border-bottom: var(--border-value);
+}
+
+.edit-section > *:last-child {
+    border-bottom: none;
+}
+
+.edit-section .head  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 1.2em;
+    min-height: 56px;
+}
+
+.head > div {
+    width: 32px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.head > div img {
+    width: 100%;
+    transform: rotate(180deg);
+}
+
+/* for forms animation */
+.forms {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+}
+
+.forms > * {
+    overflow: hidden;
+}
+
+.visible {
+    grid-template-rows: 1fr;
 }
 
 .cv-section {
@@ -19,10 +67,4 @@
     box-shadow: var(--box-shodow-value);
 }
 
-/* for test */
-.edit-section > * {
-    height: 48px;
-    border: 0.5px solid rgba(128, 128, 128, 0.582);
-    display: flex;
-    align-items: center;
-}
+

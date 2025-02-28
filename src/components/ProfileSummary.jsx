@@ -15,7 +15,7 @@ export function ProfileSummary(props) {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             <form onSubmit={(e)=>{
                 e.preventDefault()
                 props.handleProfileSummary(inputValues);

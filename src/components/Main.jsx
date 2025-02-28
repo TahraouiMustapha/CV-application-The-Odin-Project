@@ -72,24 +72,28 @@ export default function Main() {
     return (
         <>
             <div className="main">
-                <section className="edit-section" >
+                <section className='edit-section' >
                     <Head title={'Personal Details'} shown={shown} setShown={setShown}/>
-                    {shown === "Personal Details" && <PersonalDetails handlePersonalDetails = {handlePersonalDetails}/>}
+                    <PersonalDetails 
+                    className={`forms ${shown === "Personal Details" ? 'visible' : ''}`}
+                    handlePersonalDetails = {handlePersonalDetails} />
+
                     <Head title={'Profile Summary'} shown={shown} setShown={setShown}/>
-                    {shown === "Profile Summary" && <ProfileSummary handleProfileSummary = {handleProfileSummary}/>}
+                    <ProfileSummary 
+                    className={`forms ${shown === "Profile Summary" ? 'visible' : ''}`}
+                    handleProfileSummary = {handleProfileSummary}/>
+
                     {/* experience div */}
-                    <Head title={'Experience'} shown={shown} setShown={setShown}/>
-                    { shown === "Experience" &&
-                        <div>
+                    <Head title={'Experience'} shown={shown} setShown={setShown}/>                  
+                    <div className={`forms ${shown === "Experience" ? 'visible' : ''}`} >
                          <PracticalExperienceCard handleExperiences={handleExperiences}/>
-                    </div>}
+                    </div>
+
                     {/* education div */}
                     <Head title={'Education'} shown={shown} setShown={setShown}/>
-                   { shown === "Education" &&  
-                    <div>
+                    <div className={`forms ${shown === "Education" ? 'visible' : ''}`}>
                         <EducationCard handleEducations={handleEducations}/> 
-                    </div> }
-
+                    </div> 
                 </section>
 
                 <section className="cv-section">
