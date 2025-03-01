@@ -70,7 +70,9 @@ export function PracticalExperienceCard(props) {
                 </p>
 
                 <div className="btns">
-                    <button type="button">Delete</button>
+                    <button 
+                    type="button"
+                    onClick={()=> props.handleDeleteExperienceCard(props.obj.id)}>Delete</button>
                     <button>Submit</button>
                 </div>
             </form>

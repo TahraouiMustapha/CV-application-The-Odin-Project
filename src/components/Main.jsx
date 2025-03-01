@@ -56,34 +56,38 @@ export default function Main() {
         setExperiencesArray(prevArray => [
             ...prevArray, 
             {
-                id: experiencesArray.length,
+                id: crypto.randomUUID(),
                 ...newExperienceCard
             }
         ])
     }
 
     function handleEducations(newEducationCard) {
-        console.log(educationsArray)
         setEducationsArray(prevArray => [
             ...prevArray,
-            {id: prevArray.length, ...newEducationCard}
+            {id: crypto.randomUUID(), ...newEducationCard}
         ])
     }
 
-    function handleAddingNewCard(e) {
+    function handleAddingNewEmptyCard(e) {
         if(e.target.dataset.sectionname === 'Experience'){
             const newArray = [
                 ...experiencesArray,
-                {}
+                {id: crypto.randomUUID()}
             ] 
             setExperiencesArray(newArray)
         } else if(e.target.dataset.sectionname === 'Education') {
             const newArray = [
                 ...educationsArray,
-                {}
+                {id: crypto.randomUUID()}
             ]
             setEducationsArray(newArray)
         }
+    }
+
+    function handleDeleteExperienceCard(cardId) {
+        const newArray = experiencesArray.filter( exp => exp.id !== cardId);
+        setExperiencesArray(newArray);
     }
 
     return (
@@ -115,13 +119,14 @@ export default function Main() {
                             return <PracticalExperienceCard 
                                     key={exp.id}
                                     obj={exp}
-                                    handleExperiences={handleExperiences}/>
+                                    handleExperiences={handleExperiences}
+                                    handleDeleteExperienceCard={handleDeleteExperienceCard}/>
                         })}
                         <div>
                             <button 
                             className="add-experience" 
                             data-sectionname= "Experience"
-                            onClick={handleAddingNewCard} >Add experience</button>
+                            onClick={handleAddingNewEmptyCard} >Add experience</button>
                         </div>
                     </div>
 
@@ -146,7 +151,7 @@ export default function Main() {
                             <button 
                             className="add-experience"
                             data-sectionname = "Education"
-                            onClick={handleAddingNewCard}>Add experience</button>
+                            onClick={handleAddingNewEmptyCard}>Add experience</button>
                         </div>
                     </div> 
                 </section>
