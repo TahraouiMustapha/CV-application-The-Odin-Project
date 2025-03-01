@@ -15,7 +15,8 @@ export function EducationCard(props) {
             <form onSubmit={ e =>{
                 e.preventDefault();
                 props.handleEducations(inputValues)
-            }}>
+            }}
+            style={{border: '0.5px solid rgba(128, 128, 128, 0.582)',padding: '4px 8px', margin:'16px 0' }}>
                 <p>
                     <label htmlFor="school-universiy">School/University: </label>
                     <input type="text" 
@@ -57,7 +58,10 @@ export function EducationCard(props) {
                     onChange={(e)=> setInputValues({...inputValues, location: e.target.value})}/>
                 </p>
 
-                <button>submit</button>
+                <div className="btns">
+                    <button type="button">Delete</button>
+                    <button>Submit</button>
+                </div>
             </form>
         </div>
     )

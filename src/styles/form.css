@@ -31,7 +31,7 @@ form button {
     outline: none;
     border: none;
     border-radius: 0.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
@@ -61,4 +61,17 @@ form .duration p:first-child {
 
 form input[type="date"] {
     color-scheme: black;
+}
+
+label[for="details"] {
+    align-self: flex-start;    
+}
+
+form .btns {
+    display: flex;
+    gap: 32px
+}
+
+form .btns button:first-child {
+    background-color: rgba(224, 53, 53, 0.349);
 }
