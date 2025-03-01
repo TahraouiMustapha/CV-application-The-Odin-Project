@@ -70,6 +70,22 @@ export default function Main() {
         ])
     }
 
+    function handleAddingNewCard(e) {
+        if(e.target.dataset.sectionname === 'Experience'){
+            const newArray = [
+                ...experiencesArray,
+                {}
+            ] 
+            setExperiencesArray(newArray)
+        } else if(e.target.dataset.sectionname === 'Education') {
+            const newArray = [
+                ...educationsArray,
+                {}
+            ]
+            setEducationsArray(newArray)
+        }
+    }
+
     return (
         <>
             <div className="main">
@@ -102,7 +118,10 @@ export default function Main() {
                                     handleExperiences={handleExperiences}/>
                         })}
                         <div>
-                            <button className="add-experience">Add experience</button>
+                            <button 
+                            className="add-experience" 
+                            data-sectionname= "Experience"
+                            onClick={handleAddingNewCard} >Add experience</button>
                         </div>
                     </div>
 
@@ -124,7 +143,10 @@ export default function Main() {
                         })}
                       
                         <div>
-                            <button className="add-experience">Add experience</button>
+                            <button 
+                            className="add-experience"
+                            data-sectionname = "Education"
+                            onClick={handleAddingNewCard}>Add experience</button>
                         </div>
                     </div> 
                 </section>
