@@ -15,7 +15,7 @@ export function ProfileSummary(props) {
     }
 
     return (
-        <div className={props.className}>
+        <div className={props.className} style={{padding: '0 24px'}}>
             <form onSubmit={(e)=>{
                 e.preventDefault()
                 props.handleProfileSummary(inputValues);
@@ -28,7 +28,7 @@ export function ProfileSummary(props) {
                     onChange={handleChangeInput}/>
                 </p>
 
-                <p>
+                <p className="summary-field"> 
                     <label htmlFor="summary">Profile Summary: </label>
                     <textarea id="summary"
                     name="summary"

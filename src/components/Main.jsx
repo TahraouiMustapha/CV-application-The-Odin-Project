@@ -5,6 +5,7 @@ import { PracticalExperienceCard } from "./PracticalExpCard";
 import { EducationCard } from "./EducationCard";
 import arrowIcon from "../assets/arrow.svg";
 import '../styles/main.css'
+import '../styles/form.css' 
 
 function Head(props) {
     return(
@@ -85,13 +86,17 @@ export default function Main() {
 
                     {/* experience div */}
                     <Head title={'Experience'} shown={shown} setShown={setShown}/>                  
-                    <div className={`forms ${shown === "Experience" ? 'visible' : ''}`} >
+                    <div 
+                    className={`forms ${shown === "Experience" ? 'visible' : ''}`} 
+                    style={{padding:'0 24px'}}>
                          <PracticalExperienceCard handleExperiences={handleExperiences}/>
                     </div>
 
                     {/* education div */}
                     <Head title={'Education'} shown={shown} setShown={setShown}/>
-                    <div className={`forms ${shown === "Education" ? 'visible' : ''}`}>
+                    <div 
+                    className={`forms ${shown === "Education" ? 'visible' : ''}`}
+                    style={{padding: '0 24px'}}>
                         <EducationCard handleEducations={handleEducations}/> 
                     </div> 
                 </section>

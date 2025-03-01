@@ -28,6 +28,7 @@
     border-bottom: none;
 }
 
+
 .edit-section .head  {
     display: flex;
     justify-content: space-between;
@@ -69,6 +70,10 @@
 
 .forms > * {
     overflow: hidden;
+}
+
+.forms form button {
+    background-color: var(--background-edit-sec);
 }
 
 .visible {

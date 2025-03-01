@@ -19,20 +19,20 @@ export function PersonalDetails(props) {
     }
 
     return (
-        <div className={props.className}>
+        <div className={props.className} style={{padding: '0 24px'}}>
             <form onSubmit={(e) => { 
                     e.preventDefault(); 
                     props.handlePersonalDetails(inputValues);
                 }}>
 
                     <p>
-                        <label htmlFor="full-name">Your full name: </label>
+                        <label htmlFor="full-name">Your full name </label>
                         <input type="text" 
                         name="full-name" 
                         onChange={handleChangeValues}/>
                     </p>
                     <p>
-                        <label htmlFor="email">Email: </label>
+                        <label htmlFor="email">Email </label>
                         <input type="email" 
                         name="email" 
                         onChange={handleChangeValues}/>
