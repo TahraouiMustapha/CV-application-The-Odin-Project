@@ -58,7 +58,9 @@ export function EducationCard(props) {
                 </p>
 
                 <div className="btns">
-                    <button type="button">Delete</button>
+                    <button 
+                    type="button"
+                    onClick={()=> props.handleDeleteEducationCard(props.obj.id)} >Delete</button>
                     <button>Submit</button>
                 </div>
             </form>

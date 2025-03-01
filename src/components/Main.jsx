@@ -90,6 +90,11 @@ export default function Main() {
         setExperiencesArray(newArray);
     }
 
+    function handleDeleteEducationCard(cardId) {
+        const newArray = educationsArray.filter( edu => edu.id !== cardId);
+        setEducationsArray(newArray);
+    }
+
     return (
         <>
             <div className="main">
@@ -144,7 +149,8 @@ export default function Main() {
                             return <EducationCard
                             key={edu.id}
                             obj={edu} 
-                            handleEducations={handleEducations}/>   
+                            handleEducations={handleEducations}
+                            handleDeleteEducationCard={handleDeleteEducationCard}/>   
                         })}
                       
                         <div>
