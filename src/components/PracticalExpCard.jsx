@@ -1,13 +1,7 @@
 import { useState } from "react"
 
 export function PracticalExperienceCard(props) {
-    const [inputValues, setInputValues] = useState({
-        companyName:'',
-        position: '',
-        fromDate: '',
-        toDate: '',
-        details: ''
-    })
+    const [inputValues, setInputValues] = useState(props.obj)
 
 
     return (
@@ -21,6 +15,7 @@ export function PracticalExperienceCard(props) {
                     <input type="text"
                     name="company-name"
                     id="company-name" 
+                    value={inputValues?.companyName || ""}
                     onChange={(e) => {
                         setInputValues({...inputValues, companyName: e.target.value});
                     }}/>
@@ -31,6 +26,7 @@ export function PracticalExperienceCard(props) {
                     <input type="text"
                     name="position"
                     id="position" 
+                    value={inputValues?.position || ""}
                     onChange={(e)=>{
                         setInputValues({...inputValues, position: e.target.value})
                     }}/>
@@ -42,6 +38,7 @@ export function PracticalExperienceCard(props) {
                         <input type="date"
                         name="from-date"
                         id="from-date" 
+                        value={inputValues?.fromDate || ""}
                         onChange={(e)=>{
                             setInputValues({...inputValues, fromDate: e.target.value})
                         }}/>
@@ -52,6 +49,7 @@ export function PracticalExperienceCard(props) {
                         <input type="date"
                         name="to-date"
                         id="to-date" 
+                        value={inputValues?.toDate || ""}
                         onChange={(e)=>{
                             setInputValues({...inputValues, toDate: e.target.value})
                         }}/>
@@ -60,7 +58,9 @@ export function PracticalExperienceCard(props) {
 
                 <p>
                     <label htmlFor="details">Details: </label>
-                    <textarea name="details" id="details"
+                    <textarea 
+                    value={inputValues?.details || ""}
+                    name="details" id="details"
                     onChange={(e)=>{
                         setInputValues({
                             ...inputValues, 

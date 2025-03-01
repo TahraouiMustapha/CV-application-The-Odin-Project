@@ -23,7 +23,8 @@ form p input {
     width: 65%;
 }
 
-form button {
+form button ,
+.add-experience {
     align-self: flex-start;
     padding: 8px 16px;
     font-size: 1.1em;
@@ -74,4 +75,11 @@ form .btns {
 
 form .btns button:first-child {
     background-color: rgba(224, 53, 53, 0.349);
+}
+
+.add-experience {
+    background-color: rgba(53, 113, 224, 0.25);
+    width: 30%;
+    padding: 12px 24px;
+    margin: 12px 0;
 }

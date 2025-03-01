@@ -35,7 +35,7 @@ export default function Main() {
         summary: ''
     })
 
-    const [experiencesArray, setExperiencesArray] = useState([]);
+    const [experiencesArray, setExperiencesArray] = useState([ ]);
     const [educationsArray, setEducationsArray] = useState([]);
 
     // use state for handle the shown component
@@ -87,17 +87,45 @@ export default function Main() {
                     {/* experience div */}
                     <Head title={'Experience'} shown={shown} setShown={setShown}/>                  
                     <div 
-                    className={`forms ${shown === "Experience" ? 'visible' : ''}`} 
-                    style={{padding:'0 24px'}}>
-                         <PracticalExperienceCard handleExperiences={handleExperiences}/>
+                    className={`forms cards-container ${shown === "Experience" ? 'visible' : ''}`} 
+                    style={{
+                        padding:'0 24px',
+                        gridTemplateRows: shown === "Experience" 
+                            ? `${experiencesArray.reduce((total) => total.concat('1fr '), '')} ${experiencesArray.length === 0? '1fr':'min-content'}` 
+                            : `${experiencesArray.reduce((total) => total.concat('0fr '), '')} 0fr`
+                    }}>
+
+                        {experiencesArray.map((exp) => {
+                            return <PracticalExperienceCard 
+                                    key={exp.id}
+                                    obj={exp}
+                                    handleExperiences={handleExperiences}/>
+                        })}
+                        <div>
+                            <button className="add-experience">Add experience</button>
+                        </div>
                     </div>
 
                     {/* education div */}
                     <Head title={'Education'} shown={shown} setShown={setShown}/>
                     <div 
-                    className={`forms ${shown === "Education" ? 'visible' : ''}`}
-                    style={{padding: '0 24px'}}>
-                        <EducationCard handleEducations={handleEducations}/> 
+                    className={`forms cards-container ${shown === "Education" ? 'visible' : ''}`}
+                    style={{
+                        padding: '0 24px',
+                        gridTemplateRows: shown === "Education"
+                        ? `${educationsArray.reduce((total)=> total.concat('1fr '), '')} ${educationsArray.length === 0? '1fr':'min-content'}`
+                        : `${educationsArray.reduce((total)=> total.concat('0fr ') ,'')} 0fr`
+                    }}>
+                        {educationsArray.map((edu)=> {
+                            return <EducationCard
+                            key={edu.id}
+                            obj={edu} 
+                            handleEducations={handleEducations}/>   
+                        })}
+                      
+                        <div>
+                            <button className="add-experience">Add experience</button>
+                        </div>
                     </div> 
                 </section>
 
