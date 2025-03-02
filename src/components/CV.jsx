@@ -18,9 +18,11 @@ function NavCV(props) {
     return (
         <div className="nav-cv">
             <div>
+                <img src={emailIcon} alt="icon" />
                 <p>email...</p>
             </div>
             <div>
+                <img src={phoneIcon} alt="icon" />
                 <p>number</p>
             </div>
         </div>
@@ -29,8 +31,6 @@ function NavCV(props) {
 
 function Title(props) {
     const icons = {
-        'email': emailIcon,
-        'phone': phoneIcon,
         'profile': accountIcon,
         'experience': bagIcon,
         'education': schoolIcon
@@ -38,10 +38,8 @@ function Title(props) {
 
     return (
         <div className='title'>
-            <div>
-                <img src={icons[props.iconSrc]} alt="icon" />
-            </div>
-            <p>{props.content? props.content : props.iconSrc.toUpperCase()}</p>
+            <img src={icons[props.iconSrc]} alt="icon" />
+            <p>{props.iconSrc.toUpperCase()}</p>
         </div>
     )
 
@@ -56,11 +54,19 @@ export default function CV(props) {
             <div className="cv-content">
                 {/* Profile */}
                 <div className="information-section">
-                    <Title iconSrc='' content=''/>
+                    <Title iconSrc='profile'/>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
                 </div>
                 {/* Experience */}
-
+                <div className="information-section">
+                    <Title iconSrc='experience'/>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+                </div>
+                {/* Education */}
+                <div className="information-section">
+                    <Title iconSrc='education'/>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+                </div>
             </div>
         </section>
     )
