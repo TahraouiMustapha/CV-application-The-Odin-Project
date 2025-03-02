@@ -8,10 +8,13 @@ import '../styles/CV.css';
 
 
 export default function CV(props) {
+    const personalDetails = props.personalDetails;
+    const profileSummary = props.profileSummary;
+
     return (
         <section className="cv-section">
-            <HeadCV/>
-            <NavCV/>
+            <HeadCV fullName={personalDetails.fullName} heading={profileSummary.heading}/>
+            <NavCV email={personalDetails.email} phoneNumber={personalDetails.phoneNumber}/>
             <div className="cv-content">
                 {/* Profile */}
                 <div className="information-section">
@@ -44,8 +47,12 @@ export default function CV(props) {
 function HeadCV(props) {
     return (
         <div className="head-cv">
-            <p className="full-name">full Name</p>
-            <p className="profession">profession</p>
+            <p className="full-name">
+                {props.fullName? props.fullName.toUpperCase(): 'Your Name Here'}
+            </p>
+            <p className="profession">
+                {props.heading?props.heading.toUpperCase(): 'Your Profession'}
+            </p>
         </div>
     )
 }
@@ -55,11 +62,11 @@ function NavCV(props) {
         <div className="nav-cv">
             <div>
                 <img src={emailIcon} alt="icon" />
-                <p>email...</p>
+                <p>{props.email? props.email: 'Email'}</p>
             </div>
             <div>
                 <img src={phoneIcon} alt="icon" />
-                <p>number</p>
+                <p>{props.phoneNumber? props.phoneNumber: 'your number'}</p>
             </div>
         </div>
     )

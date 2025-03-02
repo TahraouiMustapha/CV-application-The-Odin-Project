@@ -25,13 +25,13 @@ function Head(props) {
 
 export default function Main() {
     const [personalDetails, setPersonalDetails] = useState({
-        fullName: '', 
+        fullName: 'Tahraoui Mustapha', 
         email: '', 
         phoneNumber: ''
     });
 
     const [profileSummary, setProfileSummary] = useState({
-        heading: '',
+        heading: 'Front End Developer',
         summary: ''
     })
 
