@@ -55,33 +55,28 @@ export default function Main() {
 
         setExperiencesArray(prevArray => [
             ...prevArray, 
-            {
-                id: crypto.randomUUID(),
-                ...newExperienceCard
-            }
+            {...newExperienceCard}
         ])
     }
 
     function handleEducations(newEducationCard) {
         setEducationsArray(prevArray => [
             ...prevArray,
-            {id: crypto.randomUUID(), ...newEducationCard}
+            {...newEducationCard}
         ])
     }
 
     function handleAddingNewEmptyCard(e) {
         if(e.target.dataset.sectionname === 'Experience'){
-            const newArray = [
-                ...experiencesArray,
+            setExperiencesArray(prevArray => [
+                ...prevArray,
                 {id: crypto.randomUUID()}
-            ] 
-            setExperiencesArray(newArray)
+            ])
         } else if(e.target.dataset.sectionname === 'Education') {
-            const newArray = [
-                ...educationsArray,
+            setEducationsArray(prevArray => [
+                ...prevArray,
                 {id: crypto.randomUUID()}
-            ]
-            setEducationsArray(newArray)
+            ])
         }
     }
 

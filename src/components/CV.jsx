@@ -10,6 +10,9 @@ import '../styles/CV.css';
 export default function CV(props) {
     const personalDetails = props.personalDetails;
     const profileSummary = props.profileSummary;
+    const experiencesArray = props.experiencesArray;
+
+    console.log(experiencesArray)
 
     return (
         <section className="cv-section">
@@ -19,15 +22,19 @@ export default function CV(props) {
                 {/* Profile */}
                 <div className="information-section">
                     <Title iconSrc='profile'/>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+                    <p>{profileSummary.summary? profileSummary.summary: 'Add your summary in \'Profile Summary\' section'}</p>
                 </div>
                 {/* Experience */}
                 <div className="information-section">
                     <Title iconSrc='experience'/>
                     <div className='cards-container'>
-                        <ExpCVCard/>
-                        <ExpCVCard/>
-                        <ExpCVCard/>
+                        {experiencesArray.length > 0
+                        ? experiencesArray.map(exp => {
+                            // check if the obj that passed in component is empty (just with id)
+                            return Object.keys(exp).length >= 2 && <ExpCVCard key={exp.id} expObj={exp}/> 
+                        })
+                        : 'Add your experience in \'Experience\' section'}
+                        
                     </div>
                 </div>
                 {/* Education */}
@@ -88,18 +95,19 @@ function Title(props) {
 }
 
 function ExpCVCard(props) {
+    const expObj = props.expObj;
     return (
         <div className='cv-card'>
             <div className="head">
-                <div className="position">Software engineer inkadsa</div>
+                <div className="position">{expObj.position}</div>
                 {'-'}
-                <div className="company-name">companyName</div>
+                <div className="company-name">{expObj.companyName}</div>
                 <div className="duration">
-                    date
+                    {`(${expObj.fromDate ,'', expObj.toDate})`}
                 </div>
             </div>
             <div className="details">
-                details Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum quisquam unde similique? Vero, modi reprehenderit. Minus, autem expedita. Suscipit, pariatur.
+                {expObj.details}
             </div>
         </div>
     )

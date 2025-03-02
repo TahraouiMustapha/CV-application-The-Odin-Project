@@ -8,7 +8,9 @@ export function PracticalExperienceCard(props) {
         <div>
             <form onSubmit={(e)=> {
                 e.preventDefault()
-                props.handleExperiences(inputValues)
+                // to create new id for the new Submit cards
+                const newId = crypto.randomUUID(); 
+                props.handleExperiences({...inputValues, id: newId})
             }} style={{border: '0.5px solid rgba(128, 128, 128, 0.582)',padding: '4px 8px', margin:'16px 0' }}>
                 <p>
                     <label htmlFor="company-name">Company Name: </label>

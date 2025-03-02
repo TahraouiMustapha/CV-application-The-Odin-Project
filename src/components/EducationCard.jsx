@@ -8,7 +8,9 @@ export function EducationCard(props) {
         <div>
             <form onSubmit={ e =>{
                 e.preventDefault();
-                props.handleEducations(inputValues)
+                // to create new id for the new Submit cards
+                const newId = crypto.randomUUID();
+                props.handleEducations({...inputValues, id: newId})
             }}
             style={{border: '0.5px solid rgba(128, 128, 128, 0.582)',padding: '4px 8px', margin:'16px 0' }}>
                 <p>
