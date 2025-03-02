@@ -1,4 +1,5 @@
 import './App.css'
+import Main from './components/Main'
 
 function  Nav() {
   return (
@@ -10,15 +11,8 @@ function  Nav() {
 }
 
 
-function Main() {
-  return (
-    <div className='main'>main</div>
-  )
-}
-
 
 function App() {
-
   return (
     <>
       <Nav/>

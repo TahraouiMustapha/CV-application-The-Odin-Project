@@ -38,20 +38,20 @@
     min-height: 56px;
 }
 
-.head > div {
+.edit-section .head > div {
     width: 32px;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.head > div img {
+.edit-section .head > div img {
     width: 100%;
     transform: rotate(180deg);
     transition: transform 0.2s ease;
 }
 
-.open > div img {
+.head.open > div img {
     transform: rotate(0deg);
 }
 

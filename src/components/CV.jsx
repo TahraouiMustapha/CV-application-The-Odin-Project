@@ -5,6 +5,37 @@ import bagIcon from '../assets/bag.svg';
 import schoolIcon from '../assets/school.svg';
 import '../styles/CV.css';
 
+
+
+export default function CV(props) {
+    return (
+        <section className="cv-section">
+            <HeadCV/>
+            <NavCV/>
+            <div className="cv-content">
+                {/* Profile */}
+                <div className="information-section">
+                    <Title iconSrc='profile'/>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+                </div>
+                {/* Experience */}
+                <div className="information-section">
+                    <Title iconSrc='experience'/>
+                    <div className='cards-container'>
+                        <ExpCVCard/>
+                        <ExpCVCard/>
+                        <ExpCVCard/>
+                    </div>
+                </div>
+                {/* Education */}
+                <div className="information-section">
+                    <Title iconSrc='education'/>
+                </div>
+            </div>
+        </section>
+    )
+}
+
 function HeadCV(props) {
     return (
         <div className="head-cv">
@@ -42,32 +73,22 @@ function Title(props) {
             <p>{props.iconSrc.toUpperCase()}</p>
         </div>
     )
-
 }
 
-
-export default function CV(props) {
+function ExpCVCard(props) {
     return (
-        <section className="cv-section">
-            <HeadCV/>
-            <NavCV/>
-            <div className="cv-content">
-                {/* Profile */}
-                <div className="information-section">
-                    <Title iconSrc='profile'/>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
-                </div>
-                {/* Experience */}
-                <div className="information-section">
-                    <Title iconSrc='experience'/>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
-                </div>
-                {/* Education */}
-                <div className="information-section">
-                    <Title iconSrc='education'/>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+        <div className='experience cv-card'>
+            <div className="head">
+                <div className="position">Software engineer inkadsa</div>
+                {'-'}
+                <div className="company-name">companyName</div>
+                <div className="duration">
+                    date
                 </div>
             </div>
-        </section>
+            <div className="details">
+                details Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum quisquam unde similique? Vero, modi reprehenderit. Minus, autem expedita. Suscipit, pariatur.
+            </div>
+        </div>
     )
 }

@@ -82,9 +82,41 @@
     width: 38px;
 }
 
-.title + p {
+.title + p , 
+.cv-card .details {
     font-size: 1.1em;
 }
-/* frp test */
 
+/* for cards container under Experience */
+.information-section .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
 
+.information-section  .cv-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cv-card .head {
+    --font-weight: 500;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 24px;
+
+    font-size: 1.3em;
+}
+
+.cv-card .head > * {
+    font-weight: var(--font-weight);
+}
+
+.cv-card .head .company-name {
+    font-style: italic;
+}
+
+.cv-card .head .duration {
+    --font-weight: 400;
+}
