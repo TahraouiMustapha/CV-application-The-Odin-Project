@@ -8,6 +8,7 @@ export function PracticalExperienceCard(props) {
         <div>
             <form onSubmit={(e)=> {
                 e.preventDefault()
+                props.handleDeleteExperienceCard(props.obj.id)
                 // to create new id for the new Submit cards
                 const newId = crypto.randomUUID(); 
                 props.handleExperiences({...inputValues, id: newId})

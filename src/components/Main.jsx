@@ -104,7 +104,7 @@ export default function Main() {
                     className={`forms ${shown === "Profile Summary" ? 'visible' : ''}`}
                     handleProfileSummary = {handleProfileSummary}/>
 
-                    {/* experience div */}
+                    {/* Experience */}
                     <Head title={'Experience'} shown={shown} setShown={setShown}/>                  
                     <div 
                     className={`forms cards-container ${shown === "Experience" ? 'visible' : ''}`} 
@@ -130,7 +130,7 @@ export default function Main() {
                         </div>
                     </div>
 
-                    {/* education div */}
+                    {/* Education */}
                     <Head title={'Education'} shown={shown} setShown={setShown}/>
                     <div 
                     className={`forms cards-container ${shown === "Education" ? 'visible' : ''}`}
@@ -152,7 +152,7 @@ export default function Main() {
                             <button 
                             className="add-experience"
                             data-sectionname = "Education"
-                            onClick={handleAddingNewEmptyCard}>Add experience</button>
+                            onClick={handleAddingNewEmptyCard}>Add education</button>
                         </div>
                     </div> 
                 </section>

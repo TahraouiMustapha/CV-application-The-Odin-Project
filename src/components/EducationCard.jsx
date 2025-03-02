@@ -8,6 +8,7 @@ export function EducationCard(props) {
         <div>
             <form onSubmit={ e =>{
                 e.preventDefault();
+                props.handleDeleteEducationCard(props.obj.id)
                 // to create new id for the new Submit cards
                 const newId = crypto.randomUUID();
                 props.handleEducations({...inputValues, id: newId})
