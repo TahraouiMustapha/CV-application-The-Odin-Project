@@ -30,6 +30,11 @@ export default function CV(props) {
                 {/* Education */}
                 <div className="information-section">
                     <Title iconSrc='education'/>
+                    <div className='cards-container'>
+                        <EduCVCard/>
+                        <EduCVCard/>
+                        <EduCVCard/>
+                    </div>
                 </div>
             </div>
         </section>
@@ -77,7 +82,7 @@ function Title(props) {
 
 function ExpCVCard(props) {
     return (
-        <div className='experience cv-card'>
+        <div className='cv-card'>
             <div className="head">
                 <div className="position">Software engineer inkadsa</div>
                 {'-'}
@@ -89,6 +94,19 @@ function ExpCVCard(props) {
             <div className="details">
                 details Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum quisquam unde similique? Vero, modi reprehenderit. Minus, autem expedita. Suscipit, pariatur.
             </div>
+        </div>
+    )
+}
+
+function EduCVCard(props) {
+    return (
+        <div className="cv-card">
+            <div className="degree">degree</div>
+            <div className='school-career'>
+                <div>school</div>
+                <div>date</div>
+            </div>
+            <div> location</div>
         </div>
     )
 }
