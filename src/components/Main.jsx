@@ -3,6 +3,7 @@ import { PersonalDetails } from "./PersonalDetails";
 import { ProfileSummary } from "./ProfileSummary";
 import { PracticalExperienceCard } from "./PracticalExpCard";
 import { EducationCard } from "./EducationCard";
+import CV from "./CV";
 import arrowIcon from "../assets/arrow.svg";
 import '../styles/main.css'
 import '../styles/form.css' 
@@ -15,7 +16,6 @@ function Head(props) {
                 props.shown === props.title
                 ? props.setShown('')
                 : props.setShown(props.title);
-                console.log(props.shown)
             }}>
                 <img src={arrowIcon} alt="arrow icon" />
             </div>
@@ -161,14 +161,12 @@ export default function Main() {
                         </div>
                     </div> 
                 </section>
-
-                <section className="cv-section">
-                    <div >{personalDetails.fullName}</div>
-                    <div >{personalDetails.email}</div>
-                    <div >{ experiencesArray.length > 0 && 'good' }</div>
-                    <div >{ educationsArray.length > 0 && 'good education' }</div>
-
-                </section>
+            {/* cv part*/}
+             <CV 
+                personalDetails={personalDetails}
+                profileSummary={profileSummary}
+                experiencesArray={experiencesArray}
+                educationsArray={educationsArray}/>           
             </div>
         </>
     )
