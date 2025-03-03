@@ -7,6 +7,7 @@ import CV from "./CV";
 import arrowIcon from "../assets/arrow.svg";
 import '../styles/main.css'
 import '../styles/form.css' 
+import { format, fromUnixTime } from "date-fns";
 
 function Head(props) {
     return(
@@ -26,17 +27,31 @@ function Head(props) {
 export default function Main() {
     const [personalDetails, setPersonalDetails] = useState({
         fullName: 'Tahraoui Mustapha', 
-        email: '', 
-        phoneNumber: ''
+        email: 'someemail@gmail.com', 
+        phoneNumber: '0777789845'
     });
 
     const [profileSummary, setProfileSummary] = useState({
         heading: 'Front End Developer',
-        summary: ''
+        summary: 'Proactive, collaborative, and user-oriented front end web developer with 5+ years’ experience leveraging programming skills to deliver custom software solutions to support company goals. Efficient team player with C+ and C++ proficiencies, track record of collaborating via Git / GitHub, and ability to work independently or as part of a team to complete development tasks while meeting delivery deadlines.'
     })
 
-    const [experiencesArray, setExperiencesArray] = useState([ ]);
-    const [educationsArray, setEducationsArray] = useState([]);
+    const [experiencesArray, setExperiencesArray] = useState([{
+        id: crypto.randomUUID(),
+        companyName:'TechNova Solutions',
+        position: 'Software Engineer',
+        fromDate: format(new Date('02/04/2023'), "yyyy-MM-dd"),
+        toDate: format(new Date('03/03/2025'), "yyyy-MM-dd"),
+        details: 'As a Software Engineer at TechNova Solutions, the individual will be responsible for designing, developing, and maintaining web applications that cater to a variety of industries, from finance to healthcare. They will work collaboratively with cross-functional teams to understand user needs and translate them into high-quality software solutions.'
+    }]);
+    const [educationsArray, setEducationsArray] = useState([{
+        id: crypto.randomUUID(),
+        school: 'El emam ahmed el ghazali',
+        degree: 'High School Degree',
+        fromDate: format(new Date('02/04/2019'), "yyyy-MM-dd"),
+        toDate: format(new Date('02/04/2021'), "yyyy-MM-dd"),
+        location: 'Sour el ghozlane'
+    }]);
 
     // use state for handle the shown component
     const [shown, setShown] = useState('');
