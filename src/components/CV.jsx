@@ -1,3 +1,5 @@
+
+import { format } from 'date-fns';
 import phoneIcon from '../assets/phone.svg';
 import emailIcon from '../assets/email.svg';
 import accountIcon from '../assets/account.svg';
@@ -11,8 +13,9 @@ export default function CV(props) {
     const personalDetails = props.personalDetails;
     const profileSummary = props.profileSummary;
     const experiencesArray = props.experiencesArray;
+    const educationsArray = props.educationsArray;
 
-    console.log(experiencesArray)
+    console.log(educationsArray)
 
     return (
         <section className="cv-section">
@@ -30,9 +33,9 @@ export default function CV(props) {
                     <div className='cards-container'>
                         {experiencesArray.length > 0
                         ? experiencesArray.map(exp => {
-                            // check if the obj that passed in component is empty (just with id)
-                            return Object.keys(exp).length >= 2 && <ExpCVCard key={exp.id} expObj={exp}/> 
-                        })
+                            // to avoid passing an empty object (just with id)
+                            return Object.keys(exp).length >= 2 && <ExpCVCard key={exp.id} expObj={exp}/>
+                        } )
                         : 'Add your experience in \'Experience\' section'}
                         
                     </div>
@@ -41,9 +44,12 @@ export default function CV(props) {
                 <div className="information-section">
                     <Title iconSrc='education'/>
                     <div className='cards-container'>
-                        <EduCVCard/>
-                        <EduCVCard/>
-                        <EduCVCard/>
+                        {educationsArray.length > 0
+                        ? educationsArray.map(edu => {
+                            // to avoid passing an empty object (just with id)
+                            return Object.keys(edu).length >= 2 && <EduCVCard key={edu.id} eduObj={edu}/>
+                        })
+                        : 'Add your experience in \'Experience\' section' }
                     </div>
                 </div>
             </div>
@@ -96,6 +102,10 @@ function Title(props) {
 
 function ExpCVCard(props) {
     const expObj = props.expObj;
+
+    const from = expObj.fromDate? format(new Date(expObj.fromDate), "MM/dd/yyyy"): '' ;
+    const to = expObj.toDate ? format(new Date(expObj.toDate), "MM/dd/yyyy"): '' ;
+
     return (
         <div className='cv-card'>
             <div className="head">
@@ -103,7 +113,7 @@ function ExpCVCard(props) {
                 {'-'}
                 <div className="company-name">{expObj.companyName}</div>
                 <div className="duration">
-                    {`(${expObj.fromDate ,'', expObj.toDate})`}
+                    {`(${from} - ${to})`}
                 </div>
             </div>
             <div className="details">
@@ -114,14 +124,21 @@ function ExpCVCard(props) {
 }
 
 function EduCVCard(props) {
+    const eduObj = props.eduObj;
+
+    const from = eduObj.fromDate ? format(new Date(eduObj.fromDate), "MM/dd/yyyy") : '';
+    const to = eduObj.toDate ? format(new Date(eduObj.toDate), "MM/dd/yyyy") : '';
+
     return (
         <div className="cv-card">
-            <div className="degree">degree</div>
+            <div className="degree">{eduObj.degree}</div>
             <div className='school-career'>
-                <div>school</div>
-                <div>date</div>
+                <div>{eduObj.school}</div>
+                <div>
+                    {`(${from} - ${to})`}
+                </div>
             </div>
-            <div> location</div>
+            <div> {eduObj.location}</div>
         </div>
     )
 }
