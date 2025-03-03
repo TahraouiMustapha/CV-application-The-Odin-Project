@@ -15,7 +15,6 @@ export default function CV(props) {
     const experiencesArray = props.experiencesArray;
     const educationsArray = props.educationsArray;
 
-    console.log(educationsArray)
 
     return (
         <section className="cv-section">

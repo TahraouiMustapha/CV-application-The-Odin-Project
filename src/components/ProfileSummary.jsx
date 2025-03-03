@@ -2,10 +2,7 @@ import { useState } from "react";
 
 
 export function ProfileSummary(props) {
-    const [inputValues, setInputValues] = useState({
-        heading: '',
-        summary: ''
-    })
+    const [inputValues, setInputValues] = useState(props.obj)
 
     function handleChangeInput(e) {
         let myInput = e.target.getAttribute('name')
@@ -23,6 +20,7 @@ export function ProfileSummary(props) {
                 <p>
                     <label htmlFor="heading">Profile Heading: </label>
                     <input type="text" 
+                    value={inputValues.heading}
                     id="heading"
                     name="heading"
                     onChange={handleChangeInput}/>
@@ -31,12 +29,13 @@ export function ProfileSummary(props) {
                 <p className="summary-field"> 
                     <label htmlFor="summary">Profile Summary: </label>
                     <textarea id="summary"
+                    value={inputValues.summary}
                     name="summary"
                     onChange={handleChangeInput}/>
                 </p>
 
                 <button> submit </button>
-
+                * You can edit the content by pressing the submit button.
             </form>
         </div>
     )

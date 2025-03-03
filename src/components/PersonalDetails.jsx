@@ -1,11 +1,7 @@
 import { useState } from "react"
 
 export function PersonalDetails(props) {
-    const [inputValues, setInputValues] = useState({
-        fullName: '', 
-        email: '', 
-        phoneNumber: ''
-    })
+    const [inputValues, setInputValues] = useState(props.obj)
 
     function handleChangeValues(e) {
         let newInputValuesObj = {}
@@ -27,13 +23,15 @@ export function PersonalDetails(props) {
 
                     <p>
                         <label htmlFor="full-name">Your full name </label>
-                        <input type="text" 
+                        <input type="text"
+                        value={inputValues.fullName} 
                         name="full-name" 
                         onChange={handleChangeValues}/>
                     </p>
                     <p>
                         <label htmlFor="email">Email </label>
                         <input type="email" 
+                        value={inputValues.email}
                         name="email" 
                         onChange={handleChangeValues}/>
                     </p>
@@ -41,6 +39,7 @@ export function PersonalDetails(props) {
                     <p>
                         <label htmlFor="phone">Phone number</label>
                         <input type="number"
+                        value={inputValues.phoneNumber}
                         name="phone-number"
                         onChange={handleChangeValues}
                          maxLength={10}/>
@@ -48,7 +47,7 @@ export function PersonalDetails(props) {
 
 
                     <button> submit </button>
-
+                    * You can edit the content by pressing the submit button. 
             </form>
         </div>
     )

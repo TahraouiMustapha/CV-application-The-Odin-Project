@@ -7,7 +7,7 @@ import CV from "./CV";
 import arrowIcon from "../assets/arrow.svg";
 import '../styles/main.css'
 import '../styles/form.css' 
-import { format, fromUnixTime } from "date-fns";
+import { format } from "date-fns";
 
 function Head(props) {
     return(
@@ -110,12 +110,14 @@ export default function Main() {
             <div className="main">
                 <section className='edit-section' >
                     <Head title={'Personal Details'} shown={shown} setShown={setShown}/>
-                    <PersonalDetails 
+                    <PersonalDetails
+                    obj={personalDetails} 
                     className={`forms ${shown === "Personal Details" ? 'visible' : ''}`}
                     handlePersonalDetails = {handlePersonalDetails} />
 
                     <Head title={'Profile Summary'} shown={shown} setShown={setShown}/>
                     <ProfileSummary 
+                    obj={profileSummary}
                     className={`forms ${shown === "Profile Summary" ? 'visible' : ''}`}
                     handleProfileSummary = {handleProfileSummary}/>
 
